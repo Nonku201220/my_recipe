@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Urbanist&display=swap');
+
+
 .App {
   min-height: 100vh;
   background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
@@ -80,4 +83,10 @@
 
 .swiper-button-prev {
   left: 10px;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 5.1rem;
 }

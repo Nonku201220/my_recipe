@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Swiper from 'swiper';
-import 'swiper/swiper-bundle.min.css';
 import Recipe from './Recipe';
 
 import './App.css';
@@ -14,30 +12,7 @@ const App = () => {
   const [query, setQuery] = useState('chicken');
 
   useEffect(() => {
-    const swiper = new Swiper('.swiper-container', {
-      direction: 'horizontal',
-      slidesPerView: 3,
-      spaceBetween: 10,
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      autoplay: {
-        delay: 3000,
-      },
-      effect: 'fade',
-    });
-
     getRecipes();
-
-    return () => {
-      swiper.destroy();
-    };
   }, [query]);
 
   const getRecipes = async () => {
@@ -73,38 +48,21 @@ const App = () => {
           Search
         </button>
       </form>
-      <div className="swiper-container">
-        <div className="swiper-wrapper">
-          {recipes.map((recipe) => (
-            <div key={recipe.recipe.label} className="swiper-slide">
-              <Recipe
-                title={recipe.recipe.label}
-                /* calories={recipe.recipe.calories} */
-                image={recipe.recipe.image}
-                ingredients={recipe.recipe.ingredients || []}
-              />
-            </div>
-          ))}
-        </div>
-        <div className="swiper-pagination"></div>
-        <div className="swiper-button-next"></div>
-        <div className="swiper-button-prev"></div>
+      <div className="recipe-grid">
+        {recipes.map((recipe) => (
+          <div key={recipe.recipe.label}>
+            <Recipe
+              title={recipe.recipe.label}
+              image={recipe.recipe.image}
+              ingredients={recipe.recipe.ingredients || []}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-const styles = {
-  sliderContainer: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, minmax(150px, 1fr))',
-    gridGap: '2rem',
-    justifyItems: 'initial',
-    height: '100%',
-    justifyContent: 'space-between',
-    overflowX: 'scroll',
-  },
-};
-
 export default App;
+
 

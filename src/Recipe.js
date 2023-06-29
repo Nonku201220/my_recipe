@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { SwiperSlide } from 'swiper/react';
 import './App.css';
 
 const Recipe = ({ title, image, ingredients }) => {
@@ -12,8 +11,8 @@ const Recipe = ({ title, image, ingredients }) => {
   return (
     <div className="recipe">
       <h2>{title}</h2>
-      <img src={image} alt={title} />
-      <button onClick={toggleIngredients}>
+      <img src={image} alt={title} style={{ borderRadius: '10%' }} />
+      <button onClick={toggleIngredients} style={{ backgroundColor: 'white', color: 'black', border: 'none', padding: '10px 20px', borderRadius: '20px', marginLeft: '5rem' }}>
         {showIngredients ? 'Hide Ingredients' : 'Show Ingredients'}
       </button>
       {showIngredients && (

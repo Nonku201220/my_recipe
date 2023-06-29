@@ -1,6 +1,6 @@
 .recipe {
     border-radius: 10px;
-    box-shadow:  0px 5px 20px rgba(71, 71, 71);
+    box-shadow: 0px 5px 20px rgba(71, 71, 71);
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -14,4 +14,10 @@
     border-radius: 50%;
     width: 100px;
     height: 100px;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1rem;
 }
